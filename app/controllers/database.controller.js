@@ -22,5 +22,5 @@ exports.stat = (req, res)=>{
         });
     });
 
-    res.render('stat')
+    res.render('stat',{'users':users})
 };
