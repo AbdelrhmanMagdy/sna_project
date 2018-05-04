@@ -11,9 +11,18 @@
                         <div class="row">
                             <div class="col-8">
                                 <br><br>
-                                <a href="/all_groups/<%=group._id%>">
+                                <% if (group.users.indexOf(String(user_id))==-1){  %>
+
                                         <h2> <%= group.name %> </h2>
-                                    </a>
+                                    <%}%>    
+                                    <% if (group.users.indexOf(String(user_id))!=-1){  %>
+                                <a href="/all_groups/<%=group._id%>">
+                                    
+                                    <h2> <%= group.name %> </h2>
+                                </a>
+                                        
+                                        <%}%>                                     
+
                                         <h5> <%= group.describtion %> </h5>
                                         
                             </div>

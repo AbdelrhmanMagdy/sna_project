@@ -13,3 +13,14 @@ exports.all_database = (req, res)=>{
     });
 };
 
+exports.stat = (req, res)=>{
+    User.find({}, (err, users)=>{
+        Post.find({}, (err, posts)=>{
+            Group.find({}, (err, groups)=>{
+                res.json({'users':users,'posts':posts,'groups':groups})
+            });
+        });
+    });
+
+    res.render('stat')
+};

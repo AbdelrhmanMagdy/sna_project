@@ -50,7 +50,8 @@
                                         
                                     <% if (post.group != null){ %>
                                         <% groups.forEach((group)=>{ %>
-                                            <%if (String(post.group) === String(group._id)) { %>
+                            
+                                            <%if (String(post.group._id) === String(group._id) || String(post.group) === String(group._id)) { %>
 
                                        <h5><a href="/user/<%= user._id %>"> <%= user.name %></a> -> <a href="/all_groups/<%= post.group %>"> <%=group.name%> </a> </h5>
                                             <% }; %>

@@ -67,7 +67,7 @@ exports.get_home = (req, res)=>{
             res.end();
         } 
         localStorage.setItem('user',JSON.stringify(user));        
-        User.find({'_id':{$in:user.friends}}).populate({path:'posts',populate: { path: 'group' }}).exec(async(err, users)=>{
+        User.find({'_id':{$in:user.friends}}).populate({path:'posts',populate: { path: 'group' },options: { sort: { 'created': "ascending" }}}).exec(async(err, users)=>{
             if(err)
                 res.send(err)
             var home_users = [user]    
@@ -76,7 +76,9 @@ exports.get_home = (req, res)=>{
                 console.log('home_posts..................')
                 console.log(home_users[0].posts[1])
             await Group.find({}).exec(async (err, groups)=>{
-    
+                groups.forEach(grp=>{
+                    console.log(grp);
+                })
                 await res.render('home',{'users':home_users,'groups':groups});
     
             });
