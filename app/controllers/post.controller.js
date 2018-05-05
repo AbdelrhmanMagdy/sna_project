@@ -74,10 +74,7 @@ exports.increment_like = (req, res)=>{
     Post.findByIdAndUpdate({_id: req.query._id},{$addToSet:{'likes':user._id}},{new:true},(err, post)=>{
         if (err)
             res.send(err);
-        else{   res.writeHead(302, {
-             'Location': '/home'
-             });
-            res.end();
+        else{   res.redirect(req.get('referer'));
         }
     });
 };

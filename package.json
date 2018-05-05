@@ -18,6 +18,7 @@
   "license": "MIT",
   "dependencies": {
     "body-parser": "^1.18.2",
+    "chart.js": "^2.7.2",
     "child_process": "^1.0.2",
     "connect-mongo": "^2.0.1",
     "ejs": "^2.5.9",

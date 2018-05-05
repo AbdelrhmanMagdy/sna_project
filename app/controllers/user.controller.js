@@ -90,13 +90,13 @@ exports.get_home = (req, res)=>{
 
 exports.read_user = (req, res)=>{
 
-    User.findById(req.params.userId).populate('friends').populate('posts').exec((err, user)=>{
+    User.findById(req.params.userId).populate('friends').populate('posts').exec((err, my_user)=>{
         if (err)
             res.send(err);
-        res.render('user/user_profile',{'user':user});
+        // console.log(my_user)
+        res.render('user/user_profile',{'user':my_user,'user_friends':my_user.friends});
     });
 };
-
 exports.update_user = (req, res)=>{
     User.findByIdAndUpdate({_id: req.params.userId}, req.body, {new: true}, (err, user)=>{
         if (err)
@@ -199,13 +199,4 @@ exports.search_user = (req, res)=>{
         });
     }
 
-};
-
-exports.my_profile = (req, res)=>{
-    user = JSON.parse(localStorage.getItem('user'));   
-    User.findById(user._id).populate('friends').populate('posts').exec((err, user)=>{
-        if (err)
-            res.send(err);
-        res.render('user/user_profile',{'user':user});
-    });
 };

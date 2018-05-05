@@ -1,1 +1,72 @@
-<%users.forEach()%>
+<% include ./partial/navbar.ejs %>
+<br><br>
+<h3 class="text-center text-danger">GENERAL STATISTICS</h3>
+<div class="row container-fluid">
+    <div class="col-6">
+        <div id="users_friends" class="text-center" style="width:600px;height:250px;margin-top:30px;">
+            Users Friends
+        </div>
+    </div>
+    <div class="col-6">    
+        <div id="users_likes" class="text-center" style="width:600px;height:250px;margin-top:30px;">
+            Users Likes
+        </div>
+    </div>
+    <div class="col-6">    
+            <div id="users_posts" class="text-center" style="width:600px;height:250px;margin-top:30px;">
+                Users Posts
+            </div>
+    </div>
+    </div>
+    <br><br>
+    <div class="container">
+    <hr>
+</div>
+    <br><br>
+<h3 class="text-center text-danger">GROUPS STATISTICS</h3>
+<div class="row container-fluid">
+    <div class="col-6">
+        <div id="groups_users" class="text-center" style="width:600px;height:250px;margin-top:30px;">
+            Groups Users
+        </div>
+    </div>
+
+</div>
+    <br><br>
+    
+
+ <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+ <script>
+    //  users and friends
+        var users_x = <%- JSON.stringify(users_names) %>;
+        var users_y = <%- JSON.stringify(users_friends) %>;
+        TESTER = document.getElementById('users_friends');
+        Plotly.plot( TESTER, [{
+        x: users_x,
+        y: users_y }], {
+        margin: { t: 0 } } );
+    //  users and likes
+        var users_x = <%- JSON.stringify(users_names) %>;
+        var users_y = <%- JSON.stringify(users_likes) %>;
+        TESTER = document.getElementById('users_likes');
+        Plotly.plot( TESTER, [{
+        x: users_x,
+        y: users_y }], {
+        margin: { t: 0 } } );
+    //  users and posts
+        var users_x = <%- JSON.stringify(users_names) %>;
+        var users_y = <%- JSON.stringify(users_posts) %>;
+        TESTER = document.getElementById('users_posts');
+        Plotly.plot( TESTER, [{
+        x: users_x,
+        y: users_y }], {
+        margin: { t: 0 } } );
+    //  groups and users
+        var users_x = <%- JSON.stringify(groups_names) %>;
+        var users_y = <%- JSON.stringify(groups_users) %>;
+        TESTER = document.getElementById('groups_users');
+        Plotly.plot( TESTER, [{
+        x: users_x,
+        y: users_y }], {
+        margin: { t: 0 } } );
+</script>

@@ -4,7 +4,7 @@ module.exports = (app) => {
     
     app.route('/db')
         .get(db.all_database)
-    app.route('/stat')
+    app.route('/statistics')
         .get(db.stat)
         
 }
