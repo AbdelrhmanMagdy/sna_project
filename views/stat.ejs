@@ -30,7 +30,16 @@
             Groups Users
         </div>
     </div>
-
+    <div class="col-6">
+        <div id="groups_posts" class="text-center" style="width:600px;height:250px;margin-top:30px;">
+            Groups Posts
+        </div>
+    </div>
+    <div class="col-6">
+        <div id="groups_likes" class="text-center" style="width:600px;height:250px;margin-top:30px;">
+            Groups Likes
+        </div>
+    </div>
 </div>
     <br><br>
     
@@ -65,6 +74,22 @@
         var users_x = <%- JSON.stringify(groups_names) %>;
         var users_y = <%- JSON.stringify(groups_users) %>;
         TESTER = document.getElementById('groups_users');
+        Plotly.plot( TESTER, [{
+        x: users_x,
+        y: users_y }], {
+        margin: { t: 0 } } );
+    //  groups and users
+        var users_x = <%- JSON.stringify(groups_names) %>;
+        var users_y = <%- JSON.stringify(groups_posts) %>;
+        TESTER = document.getElementById('groups_posts');
+        Plotly.plot( TESTER, [{
+        x: users_x,
+        y: users_y }], {
+        margin: { t: 0 } } );
+    //  groups and users
+        var users_x = <%- JSON.stringify(groups_names) %>;
+        var users_y = <%- JSON.stringify(groups_likes) %>;
+        TESTER = document.getElementById('groups_likes');
         Plotly.plot( TESTER, [{
         x: users_x,
         y: users_y }], {

@@ -31,7 +31,7 @@ exports.create_user = (req, res) => {
 };
 
 exports.login = async (req, res) => {
-    User.findOne(req.body).populate('posts').exec((err, user)=>{
+    User.findOne(req.body).populate('posts').exec(async(err, user)=>{
         if (err)
             res.send(err);
         if (user==''){
@@ -40,7 +40,8 @@ exports.login = async (req, res) => {
             });
             res.end();
         }
-        localStorage.setItem('user',JSON.stringify(user));
+        console.log(req.body)
+        await localStorage.setItem('user',JSON.stringify(user));
         console.log('User.statics.authenticate..............')
         // req.session.push('id',String(user._id))
         console.log(req.session)
