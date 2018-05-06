@@ -1,52 +1,11 @@
 <% include ./partial/styles.ejs %>
 
-<!-- 
-<h1 class="text-center text-primary text-uppercase">Social Network Analysis</h1>
-<br><br><br>
-
-<div class="row" style="padding:0% 10%">
-  <div class="col-6 " style="border:2px solid #31317d; margin-right:2px; border-radius: 50px;padding-top:25px">
-    <form class="form-signin" action="/users" method="POST">
-
-      <h1 class="h3 mb-3 font-weight-normal text-center text-primary">Sign Up</h1>
-        <label for="inputEmail" class="sr-only">Email address</label>
-        <input style="margin-bottom:10px" type="email" name="email" id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus="">
-        <label for="inputName" class="sr-only">your name</label>
-        <input type="text" name="name" id="inputName" class="form-control" placeholder="your name" required="">
-        <br>
-        <input type="radio" name="gender" value="1"> Male
-        <input type="radio" name="gender" value="0"> Female        
-        <br>
-        <br>
-        <label for="inputPassword1" class="sr-only">your password</label>
-        <input style="margin-bottom:10px" type="password" name="password" id="inputPassword1" class="form-control" placeholder="your password" required="">
-        <div class="text-center">
-        <button class="btn btn-lg btn-outline-primary " type="submit" >Sign up</button>
-      </div>
-    </form>
-  </div>
-  <div class="col-5 " style="border:2px solid #31317d;  border-radius: 50px;padding-top:25px">
-      <form class="form-signin" action="/home" method="POST">
-
-        <h1 class="h3 mb-3 font-weight-normal text-center text-primary ">Sign In</h1>
-          <label for="inputEmail" class="sr-only">Email address</label>
-          <input style="margin-bottom:10px" type="email" name="email" id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus="">
-          <label for="inputPassword" class="sr-only">your password</label>
-          <input style="margin-bottom:10px" type="password" name="password" id="inputPassword" class="form-control" placeholder="your password" required="">
-        <div class="text-center">
-          <button class="btn btn-lg btn-outline-primary " type="submit" >Sign in</button>
-        </div>
-      </form>
-  </div>
-</div>
- -->
-
- <style>  
- .body {
-    padding-top: 90px;
-        
-
-}
+<style>  
+ .main{
+  background-color:black;width:100%;height: 100vh;
+  background-color: #1a001a;
+background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='616' height='616' viewBox='0 0 800 800'%3E%3Cg fill='none' stroke='%23483b4a' stroke-width='3.8'%3E%3Cpath d='M769 229L1037 260.9M927 880L731 737 520 660 309 538 40 599 295 764 126.5 879.5 40 599-197 493 102 382-31 229 126.5 79.5-69-63'/%3E%3Cpath d='M-31 229L237 261 390 382 603 493 308.5 537.5 101.5 381.5M370 905L295 764'/%3E%3Cpath d='M520 660L578 842 731 737 840 599 603 493 520 660 295 764 309 538 390 382 539 269 769 229 577.5 41.5 370 105 295 -36 126.5 79.5 237 261 102 382 40 599 -69 737 127 880'/%3E%3Cpath d='M520-140L578.5 42.5 731-63M603 493L539 269 237 261 370 105M902 382L539 269M390 382L102 382'/%3E%3Cpath d='M-222 42L126.5 79.5 370 105 539 269 577.5 41.5 927 80 769 229 902 382 603 493 731 737M295-36L577.5 41.5M578 842L295 764M40-201L127 80M102 382L-261 269'/%3E%3C/g%3E%3Cg fill='%23cccccc'%3E%3Ccircle cx='769' cy='229' r='14'/%3E%3Ccircle cx='539' cy='269' r='14'/%3E%3Ccircle cx='603' cy='493' r='14'/%3E%3Ccircle cx='731' cy='737' r='14'/%3E%3Ccircle cx='520' cy='660' r='14'/%3E%3Ccircle cx='309' cy='538' r='14'/%3E%3Ccircle cx='295' cy='764' r='14'/%3E%3Ccircle cx='40' cy='599' r='14'/%3E%3Ccircle cx='102' cy='382' r='14'/%3E%3Ccircle cx='127' cy='80' r='14'/%3E%3Ccircle cx='370' cy='105' r='14'/%3E%3Ccircle cx='578' cy='42' r='14'/%3E%3Ccircle cx='237' cy='261' r='14'/%3E%3Ccircle cx='390' cy='382' r='14'/%3E%3C/g%3E%3C/svg%3E");
+ }
 .panel-login {
 	border-color: #ccc;
 	-webkit-box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.2);
@@ -69,7 +28,7 @@
 	transition: all 0.1s linear;
 }
 .panel-login>.panel-heading a.active{
-	color: #029f5b;
+	color: #1a001a;
 	font-size: 18px;
 }
 .panel-login>.panel-heading hr{
@@ -100,21 +59,23 @@
 	border-color: #ccc;
 }
 .btn-login {
-	background-color: #59B2E0;
+	background-color: #1a001a;
 	outline: none;
 	color: #fff;
-	font-size: 14px;
+	font-size: 16px;
 	height: auto;
 	font-weight: normal;
-	padding: 14px 0;
+	padding: 20px 0;
 	text-transform: uppercase;
-	border-color: #59B2E6;
+	border-color: white;
+  border: 2px solid #1a001a;
+  
 }
 .btn-login:hover,
 .btn-login:focus {
 	color: #fff;
-	background-color: #53A3CD;
-	border-color: #53A3CD;
+	background-color: #1a001a;
+	border-color: black
 }
 .forgot-password {
 	text-decoration: underline;
@@ -127,7 +88,7 @@
 }
 
 .btn-register {
-	background-color: #1CB94E;
+	background-color: #1a001a;
 	outline: none;
 	color: #fff;
 	font-size: 14px;
@@ -135,13 +96,15 @@
 	font-weight: normal;
 	padding: 14px 0;
 	text-transform: uppercase;
-	border-color: #1CB94A;
+	border-color: #1a001a;
+  border: 2px solid #1a001a;
+
 }
 .btn-register:hover,
 .btn-register:focus {
 	color: #fff;
-	background-color: #1CA347;
-	border-color: #1CA347;
+	background-color: #1a001a;
+	border-color: white;
 }
 
  </style>
@@ -166,13 +129,16 @@ e.preventDefault();
 });
 
 </script>
-<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
- <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
- <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+<div class="main">
+  
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<br><br><br>
  <!------ Include the above in your HEAD tag ---------->
- <div class="body">
-    <h2 class="text-center" style="font-size:90px; color:black"><i class="fas fa-users"></i> </h2>
-    <h2 class="text-center" style="font-size:90px"> <span style="color:red">S</span> <span style="color:blue">N</span> <span style="color:yellow">A</span></h2>
+ <h2 class="text-center" style="font-size:90px; margin-top:0px;color:white"><i class="fas fa-users"></i> </h2>
+    <h2 class="text-center" style="font-size:90px;margin-top:0px;"> <span style="color:red">S</span> <span style="color:blue">N</span> <span style="color:yellow">A</span></h2>
     <div class="container" >
        <div class="row">
        <div class="col-md-6 col-md-offset-3">
@@ -193,10 +159,10 @@ e.preventDefault();
                <div class="col-lg-12">
                  <form id="login-form" action="/home" method="POST" role="form" style="display: block;">
                    <div class="form-group">
-                     <input type="text" name="email" id="username" tabindex="1" class="form-control" placeholder="Username" value="">
+                     <input type="text" required name="email" id="username" tabindex="1" class="form-control" placeholder="Username" value="">
                    </div>
                    <div class="form-group">
-                     <input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password">
+                     <input type="password" required name="password" id="password" tabindex="2" class="form-control" placeholder="Password">
                    </div>
                    <div class="form-group text-center">
                      <input type="checkbox" tabindex="3" class="" id="remember">
@@ -205,7 +171,7 @@ e.preventDefault();
                    <div class="form-group">
                      <div class="row">
                        <div class="col-sm-6 col-sm-offset-3">
-                         <input type="submit"  id="login-submit" tabindex="4" class="form-control btn btn-login" value="Log In">
+                         <input type="submit"  id="login-submit" tabindex="4" class="form-control  btn-login" style="border: 2px solid #1a001a;" value="Log In">
                        </div>
                      </div>
                    </div>
@@ -221,25 +187,25 @@ e.preventDefault();
                  </form>
                  <form id="register-form" action="/users" method="POST" role="form" style="display: none;">
                    <div class="form-group">
-                     <input type="text" name="name" id="username" tabindex="1" class="form-control" placeholder="Name" value="">
+                     <input type="text" required name="name" id="username" tabindex="1" class="form-control" placeholder="Name" value="">
                    </div>
                    <div class="form-group">
                      <input type="email" name="email" id="email" tabindex="1" class="form-control" placeholder="Email Address" value="">
                    </div>
                    <div class="form-group">
-                     <input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password">
+                     <input type="password" required name="password" id="password" tabindex="2" class="form-control" placeholder="Password">
                    </div>
                    <div class="form-group" style="text-align:center">
                    <input class="radio-inline" type="radio" name="gender" value="1"> Male
                    <input  class="radio-inline" type="radio" name="gender" value="0"> Female 
                   </div>
                   <div class="form-group">
-                     <input type="password" id="confirm-password" tabindex="2" class="form-control" placeholder="Confirm Password">
+                     <input type="password" required id="confirm-password" tabindex="2" class="form-control" placeholder="Confirm Password">
                    </div>
                    <div class="form-group">
                      <div class="row">
                        <div class="col-sm-6 col-sm-offset-3">
-                         <input type="submit" name="register-submit" id="register-submit" tabindex="4" class="form-control btn btn-register" value="Register Now">
+                         <input type="submit" name="register-submit" id="register-submit" tabindex="4" style="border: 2px solid #1a001a;" class="form-control  btn-register" value="Register Now">
                        </div>
                      </div>
                    </div>
@@ -251,4 +217,5 @@ e.preventDefault();
        </div>
      </div>
    </div>
+
   </div>

@@ -52,8 +52,12 @@
                                         <% groups.forEach((group)=>{ %>
                             
                                             <%if (String(post.group._id) === String(group._id) || String(post.group) === String(group._id)) { %>
-
-                                       <h5><a href="/user/<%= user._id %>"> <%= user.name %></a> -> <a href="/all_groups/<%= post.group %>"> <%=group.name%> </a> </h5>
+                                                <%if(group.users.indexOf(user_local._id)>-1){%>
+                                                    <h5><a href="/user/<%= user._id %>"> <%= user.name %></a> -> <a href="/all_groups/<%= post.group._id %>"> <%=group.name%> </a> </h5>
+                                                    <%}else{%>
+                                                    <h5><a href="/user/<%= user._id %>"> <%= user.name %></a> ->  <%=group.name%>  </h5>
+                                                    <%}%>
+                                                
                                             <% }; %>
                                         <% }); %>
                                     <% } %> 
