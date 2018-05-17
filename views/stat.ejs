@@ -1,43 +1,59 @@
 <% include ./partial/navbar.ejs %>
 <br><br>
 <h3 class="text-center text-danger">GENERAL STATISTICS</h3>
-<div class="row container-fluid">
-    <div class="col-6">
-        <div id="users_friends" class="text-center" style="width:600px;height:250px;margin-top:30px;">
-            Users Friends
-        </div>
-    </div>
-    <div class="col-6">    
-        <div id="users_likes" class="text-center" style="width:600px;height:250px;margin-top:30px;">
-            Users Likes
-        </div>
-    </div>
-    <div class="col-6">    
-            <div id="users_posts" class="text-center" style="width:600px;height:250px;margin-top:30px;">
-                Users Posts
-            </div>
-    </div>
-    </div>
-    <br><br>
+<h3 class="text-center ">No of users in Network = <%=users_names.length%></h3> 
+<h3 class="text-center ">No of groups  in Network = <%=groups_names.length%></h3> 
+
+
     <div class="container">
     <hr>
 </div>
-    <br><br>
+<h3 class="text-center text-danger">USER STATISTICS</h3>
+
+<div class="row container-fluid">
+    <div class="col-12" >
+        <div id="users_friends" class="text-center" style="margin-left: auto;
+        margin-right: auto;width:650px;height:320px;margin-top:10px;">
+            
+        </div>
+    </div>
+    <div class="col-12" >    
+        <div id="users_likes" class="text-center" style="margin-left: auto;
+        margin-right: auto;width:650px;height:320px;margin-top:10px;">
+           
+        </div>
+    </div>
+    <div class="col-12">    
+            <div id="users_posts" class="text-center" style="margin-left: auto;
+            margin-right: auto;width:650px;height:320px;margin-top:10px;">
+               
+            </div>
+    </div>
+    </div>
+
+    <div class="container">
+    <hr>
+</div>
+ 
 <h3 class="text-center text-danger">GROUPS STATISTICS</h3>
 <div class="row container-fluid">
-    <div class="col-6">
-        <div id="groups_users" class="text-center" style="width:600px;height:250px;margin-top:30px;">
-            Groups Users
+    <div class="col-12">
+        <div id="groups_users" class="text-center" style="margin-left: auto;
+        margin-right: auto;width:650px;height:320px;margin-top:10px;">
+            
+            
         </div>
     </div>
-    <div class="col-6">
-        <div id="groups_posts" class="text-center" style="width:600px;height:250px;margin-top:30px;">
-            Groups Posts
+    <div class="col-12">
+        <div id="groups_posts" class="text-center" style="margin-left: auto;
+        margin-right: auto;width:650px;height:320px;margin-top:10px;">
+          
         </div>
     </div>
-    <div class="col-6">
-        <div id="groups_likes" class="text-center" style="width:600px;height:250px;margin-top:30px;">
-            Groups Likes
+    <div class="col-12">
+        <div id="groups_likes" class="text-center" style="margin-left: auto;
+        margin-right: auto;width:650px;height:320px;margin-top:10px;">
+          
         </div>
     </div>
 </div>
@@ -50,48 +66,234 @@
         var users_x = <%- JSON.stringify(users_names) %>;
         var users_y = <%- JSON.stringify(users_friends) %>;
         TESTER = document.getElementById('users_friends');
+        var layout = {
+            xaxis: {
+                showticklabels: true,
+                tickangle: 40,
+                tickfont: {
+                family: 'Calibri, Candara, Segoe, Segoe UI, Optima, Arial, sans-serif',
+                size: 13,
+                color: 'black' },
+                exponentformat: 'e',
+                showexponent: 'All'},
+            yaxis: {
+                title: 'Friends',
+                titlefont: {
+                family: 'Calibri, Candara, Segoe, Segoe UI, Optima, Arial, sans-serif',
+                size: 20,
+                color: 'red'
+                } },
+            width: 650,
+            height: 320,
+            title: 'Users vs No. of Friends',
+            titlefont:{
+                family: 'Calibri, Candara, Segoe, Segoe UI, Optima, Arial, sans-serif',
+                size:28,
+                color:'#343a40'
+            }
+            };
         Plotly.plot( TESTER, [{
         x: users_x,
-        y: users_y }], {
+        y: users_y , 
+        line: {
+            color: 'rgb(55, 128, 191)',
+            width: 3
+            }
+        }],layout, { 
         margin: { t: 0 } } );
     //  users and likes
         var users_x = <%- JSON.stringify(users_names) %>;
         var users_y = <%- JSON.stringify(users_likes) %>;
         TESTER = document.getElementById('users_likes');
+        var layout = {
+            xaxis: {
+                showticklabels: true,
+                tickangle: 40,
+                tickfont: {
+                family: 'Calibri, Candara, Segoe, Segoe UI, Optima, Arial, sans-serif',
+                size: 13,
+                color: 'black' },
+                exponentformat: 'e',
+                showexponent: 'All'},
+            yaxis: {
+                title: 'Likes',
+                titlefont: {
+                family: 'Calibri, Candara, Segoe, Segoe UI, Optima, Arial, sans-serif',
+                size: 22,
+                color: 'red'
+                } },
+                width: 650,
+            height: 320,
+            title: 'Users vs No. of Likes',
+            titlefont:{
+                family: 'Calibri, Candara, Segoe, Segoe UI, Optima, Arial, sans-serif',
+                size:28,
+                color:'#343a40'
+            }
+            };
         Plotly.plot( TESTER, [{
         x: users_x,
-        y: users_y }], {
+        y: users_y , 
+        line: {
+            color: 'rgb(55, 128, 191)',
+            width: 3
+            }
+        }],layout, { 
         margin: { t: 0 } } );
     //  users and posts
         var users_x = <%- JSON.stringify(users_names) %>;
         var users_y = <%- JSON.stringify(users_posts) %>;
         TESTER = document.getElementById('users_posts');
+        var layout = {
+            xaxis: {
+                showticklabels: true,
+                tickangle: 40,
+                tickfont: {
+                family: 'Calibri, Candara, Segoe, Segoe UI, Optima, Arial, sans-serif',
+                size: 13,
+                color: 'black' },
+                exponentformat: 'e',
+                showexponent: 'All'},
+            yaxis: {
+                title: 'Posts',
+                titlefont: {
+                family: 'Calibri, Candara, Segoe, Segoe UI, Optima, Arial, sans-serif',
+                size: 22,
+                color: 'red'
+                } },
+                width: 650,
+            height: 320,
+            title: 'Users vs No. of Posts',
+            titlefont:{
+                family: 'Calibri, Candara, Segoe, Segoe UI, Optima, Arial, sans-serif',
+                size:28,
+                color:'#343a40'
+            }
+            };
         Plotly.plot( TESTER, [{
         x: users_x,
-        y: users_y }], {
+        y: users_y , 
+        line: {
+            color: 'rgb(55, 128, 191)',
+            width: 3
+            }
+        }],layout, { 
         margin: { t: 0 } } );
     //  groups and users
         var users_x = <%- JSON.stringify(groups_names) %>;
         var users_y = <%- JSON.stringify(groups_users) %>;
         TESTER = document.getElementById('groups_users');
+        var layout = {
+            xaxis: {
+                showticklabels: true,
+                tickangle: 30,
+                tickfont: {
+                family: 'Calibri, Candara, Segoe, Segoe UI, Optima, Arial, sans-serif',
+                size: 16,
+                color: 'black' },
+                exponentformat: 'e',
+                showexponent: 'All'},
+            yaxis: {
+                title: 'No. of Members',
+                fixedrange: true,
+                //range: [0, 50],
+                titlefont: {
+                family: 'Calibri, Candara, Segoe, Segoe UI, Optima, Arial, sans-serif',
+                size: 20,
+                color: 'blue'
+                } },
+            //paper_bgcolor:'rgb(233, 235, 238)',
+           // plot_bgcolor:'rgb(233, 235, 238)',
+            width: 650,
+            height: 320,
+            title: 'Group vs No. of Members'
+            };
         Plotly.plot( TESTER, [{
         x: users_x,
-        y: users_y }], {
+        y: users_y , 
+        line: {
+            color: 'rgb(219, 64, 82)',
+            width: 3
+            }
+        }],layout, { 
         margin: { t: 0 } } );
-    //  groups and users
+    //  groups and posts
         var users_x = <%- JSON.stringify(groups_names) %>;
         var users_y = <%- JSON.stringify(groups_posts) %>;
         TESTER = document.getElementById('groups_posts');
+        var layout = {
+            xaxis: {
+                showticklabels: true,
+                tickangle: 30,
+                tickfont: {
+                family: 'Calibri, Candara, Segoe, Segoe UI, Optima, Arial, sans-serif',
+                size: 16,
+                color: 'black' },
+                exponentformat: 'e',
+                showexponent: 'All'},
+            yaxis: {
+                title: 'No. of Posts',
+                titlefont: {
+                family: 'Calibri, Candara, Segoe, Segoe UI, Optima, Arial, sans-serif',
+                size: 20,
+                color: 'blue'
+                } },
+            width: 650,
+            height: 320,
+            title: 'Group vs No. of Posts',
+            titlefont:{
+                family: 'Calibri, Candara, Segoe, Segoe UI, Optima, Arial, sans-serif',
+                size:22,
+                color:'rgb(33, 37, 41)'
+            } 
+            };
         Plotly.plot( TESTER, [{
         x: users_x,
-        y: users_y }], {
+        y: users_y , 
+        line: {
+            color: 'rgb(219, 64, 82)',
+            width: 3
+            }
+        }],layout, { 
         margin: { t: 0 } } );
-    //  groups and users
+    //  groups and likes
         var users_x = <%- JSON.stringify(groups_names) %>;
         var users_y = <%- JSON.stringify(groups_likes) %>;
         TESTER = document.getElementById('groups_likes');
+        var layout = {
+            xaxis: {
+                showticklabels: true,
+                tickangle: 30,
+                tickfont: {
+                family: 'Calibri, Candara, Segoe, Segoe UI, Optima, Arial, sans-serif',
+                size: 16,
+                color: 'black' },
+                exponentformat: 'e',
+                showexponent: 'All',
+                showgrid:true},
+            yaxis: {
+                title: 'No. of Likes',
+                titlefont: {
+                family: 'Calibri, Candara, Segoe, Segoe UI, Optima, Arial, sans-serif',
+                size: 20,
+                color: 'blue'
+                } },
+            width: 650,
+            height: 320,
+            title: 'Group vs No. of Likes',
+            titlefont:{
+                family: 'Calibri, Candara, Segoe, Segoe UI, Optima, Arial, sans-serif',
+                size:22,
+                color:'rgb(33, 37, 41)'
+            } 
+            };
         Plotly.plot( TESTER, [{
         x: users_x,
-        y: users_y }], {
+        y: users_y , 
+        line: {
+            color: 'rgb(219, 64, 82)',
+            width: 3
+            }
+        }],layout, { 
         margin: { t: 0 } } );
 </script>
