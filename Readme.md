@@ -18,7 +18,6 @@ node server.js
 
 You can browse the apis at <http://localhost:3000>
 
-## Tutorial
-You can find the tutorial for this application at [The CalliCoder Blog](https://www.callicoder.com) - 
+## More Details:
 
-<https://www.callicoder.com/node-js-express-mongodb-restful-crud-api-tutorial/>
+<https://github.com/AbdelrhmanMagdy/social_network_analysis/blob/master/ReadMe.pdf>
